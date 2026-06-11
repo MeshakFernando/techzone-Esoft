@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechZone Gadget Store</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      color: #222;
+      background-color: #f4f6f9;
+    }
+
+    /* ─── HEADER ─── */
+    header {
+      background-color: #0d1b2a;
+      color: #fff;
+      padding: 18px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header h1 {
+      font-size: 26px;
+      letter-spacing: 1px;
+    }
+    header h1 span { color: #00aaff; }
+    header p { font-size: 12px; color: #aac8e4; margin-top: 3px; }
+
+    /* ─── NAV ─── */
+    nav {
+      background-color: #1a2e45;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      padding: 10px 30px;
+    }
+    nav a {
+      color: #cde5f7;
+      text-decoration: none;
+      padding: 6px 14px;
+      border-radius: 4px;
+      font-size: 13px;
+      transition: background 0.2s;
+    }
+    nav a:hover { background-color: #00aaff; color: #fff; }
+
+    /* ─── HERO BANNER ─── */
+    .hero {
+      background: linear-gradient(135deg, #0d1b2a 0%, #1a4a7a 100%);
+      color: #fff;
+      text-align: center;
+      padding: 50px 30px;
+    }
+    .hero h2 { font-size: 32px; margin-bottom: 12px; }
+    .hero h2 span { color: #00aaff; }
+    .hero p { font-size: 15px; color: #b8d8f0; max-width: 600px; margin: 0 auto 20px; }
+    .hero-btn {
+      display: inline-block;
+      background: #00aaff;
+      color: #fff;
+      padding: 10px 28px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    /* ─── SPECIAL OFFERS ─── */
+    .offers-section {
+      background-color: #fff3cd;
+      border-left: 5px solid #f0a500;
+      margin: 24px 30px;
+      padding: 16px 20px;
+      border-radius: 6px;
+    }
+    .offers-section h2 { font-size: 18px; color: #7a4e00; margin-bottom: 10px; }
+    .offer-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .offer-badge {
+      background: #f0a500;
+      color: #fff;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+    .new-badge {
+      background: #28a745;
+      color: #fff;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    /* ─── SECTION HEADERS ─── */
+    .category-section {
+      margin: 28px 30px;
+    }
+    .category-section h2 {
+      font-size: 20px;
+      color: #0d1b2a;
+      border-bottom: 3px solid #00aaff;
+      padding-bottom: 6px;
+      margin-bottom: 16px;
+    }
+
+    /* ─── PRODUCT GRID ─── */
+    .product-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+    .product-card {
+      background: #fff;
+      border: 1px solid #dde3ea;
+      border-radius: 8px;
+      width: 220px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+    }
+    .product-img {
+      background: #e8f0fb;
+      height: 130px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      color: #4a7fc1;
+    }
+    .product-info {
+      padding: 12px;
+    }
+    .product-info h3 { font-size: 14px; color: #0d1b2a; margin-bottom: 5px; }
+    .product-info p { font-size: 12px; color: #555; margin-bottom: 8px; line-height: 1.5; }
+    .product-price { font-size: 16px; font-weight: bold; color: #00aaff; }
+    .product-avail {
+      display: inline-block;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 10px;
+      margin-top: 5px;
+      font-weight: bold;
+    }
+    .in-stock { background: #d4edda; color: #155724; }
+    .out-stock { background: #f8d7da; color: #721c24; }
+    .limited { background: #fff3cd; color: #856404; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background-color: #0d1b2a;
+      color: #aac8e4;
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+      margin-top: 40px;
+    }
+    footer a { color: #00aaff; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div>
+      <h1>Tech<span>Zone</span></h1>
+      <p>Your One-Stop Gadget Destination</p>
+    </div>
+    <div style="font-size:12px; color:#aac8e4; text-align:right;">
+      &#128222; +94 11 234 5678<br />
+      &#9993; info@techzone.lk
+    </div>
+  </header>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#offers">Special Offers</a>
+    <a href="#smartphones">Smartphones</a>
+    <a href="#laptops">Laptops</a>
+    <a href="#audio">Audio &amp; Headphones</a>
+    <a href="#wearables">Smartwatches</a>
+    <a href="#gaming">Gaming</a>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero" id="home">
+    <h2>Welcome to <span>TechZone</span> Gadget Store</h2>
+    <p>Discover the latest smartphones, laptops, audio gear, smartwatches, and gaming accessories — all in one place.</p>
+    <a href="#smartphones" class="hero-btn">Shop Now</a>
+  </div>
+
+  <!-- SPECIAL OFFERS -->
+  <div class="offers-section" id="offers">
+    <h2>&#127381; Special Offers &amp; New Arrivals</h2>
+    <div class="offer-list">
+      <span class="new-badge">&#127381; NEW — Samsung Galaxy S25</span>
+      <span class="offer-badge">&#128178; 15% OFF — Sony WH-1000XM5</span>
+      <span class="new-badge">&#127381; NEW — Apple MacBook Air M4</span>
+      <span class="offer-badge">&#128178; 10% OFF — Razer DeathAdder V3</span>
+      <span class="offer-badge">&#128178; 12% OFF — Apple Watch SE (2nd Gen)</span>
+      <span class="new-badge">&#127381; NEW — ASUS ROG Zephyrus G14</span>
+    </div>
+  </div>
+
+  <!-- SMARTPHONES -->
+  <div class="category-section" id="smartphones">
+    <h2>&#128242; Smartphones</h2>
+    <div class="product-grid">
+
+      <div class="product-card">
+        <div class="product-img">&#128242;</div>
+        <div class="product-info">
+          <h3>Samsung Galaxy S25</h3>
+          <p>6.2" Dynamic AMOLED display, Snapdragon 8 Elite chipset, 50MP triple camera, 4000mAh battery.</p>
+          <div class="product-price">LKR 219,000</div>
+          <span class="product-avail in-stock">In Stock</span>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">&#128242;</div>
+        <div class="product-info">
+          <h3>Apple iPhone 16</h3>
+          <p>6.1" Super Retina XDR, A18 chip, 48MP Fusion camera, USB-C charging, iOS 18.</p>
+          <div class="product-price">LKR 289,000</div>
+          <span class="product-avail limited">Limited Stock</span>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">&#128242;</div>
+        <div class="product-info">
+          <h3>Google Pixel 9</h3>
+          <p>6.3" OLED, Google Tensor G4 chip, 50MP main camera with Magic Eraser, 7 years of updates.</p>
+          <div class="product-price">LKR 195,000</div>
+          <span class="product-avail in-stock">In Stock</span>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">&#128242;</div>
+        <div class="product-info">
+          <h3>Xiaomi 14</h3>
+          <p>6.36" AMOLED 120Hz, Snapdragon 8 Gen 3, Leica-tuned triple camera, 90W fast charging.</p>
+          <div class="product-price">LKR 148,000</div>
+          <span class="product-avail in-stock">In Stock</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- LAPTOPS -->
+  <div class="category-section" id="laptops">
+    <h2>&#128187; Laptops</h2>
+    <div class="product-grid">
+
+      <div class="product-card">
+        <div class="product-img">&#128187;</div>
+        <div class="product-info">
+          <h3>Apple MacBook Air M4</h3>
+          <p>13.6" Liquid Retina, M4 chip, 16GB RAM, 512GB SSD, up to 18 hours battery life.</p>
+          <div class="product-price">LKR 349,000</div>
+          <span class="product-avail limited">Limited Stock</span>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">&#128187;</div>
+        <div class="product-info">
+          <h3>Dell XPS 15</h3>
+          <p>15.6" OLED touch display, Intel Core Ultra 7, 16GB RAM, 512GB SSD, NVIDIA RTX 4060.</p>
+          <div class="product-price">LKR 415,000</div>
+          <span class="product-avail in-stock">In Stock</span>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">&#128187;</div>
+        <div class="product-info">
+          <h3>ASUS ROG Zephyrus G14</h3>
+          <p>14" QHD 165Hz, AMD Ryzen 9, 32GB RAM, RTX 4070, gaming laptop with slim design.</p>
+          <div class="product-price">LKR 479,000</div>
+          <span class="product-avail in-stock">In Stock</span>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">&#128187;</div>
+        <div class="product-info">
+          <h3>Lenovo IdeaPad Slim 5</h3>
+          <p>15.6" FHD IPS, Intel Core i5 13th Gen, 8GB RAM, 512GB SSD, backlit keyboard.</p>
+          <div class="product-price">LKR 129,000</div>
+          <span class="product-avail in-stock">In Stock</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- AUDIO -->
+  <div class="category-section" id="audio">
+    <h2>&#127911; Audio &amp; Headphones</h2>
+    <div class="product-grid">
+
+      <div class="product-card">
+        <div class="product-img">&#127911;</div>
+        <div class="product-info">
+          <h3>Sony WH-1000XM5</h3>
+          <p>Over-ear wireless headphones, industry-leading ANC, 30-hour battery, hi-res audio support.</p>
+          <div class="product-price">LKR 89,500</div>
+          <span class="product-avail in-stock">In Stock</span>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">&#127911;</div>
+        <div class="product-info">
+          <h3>Apple AirPods Pro 2</h3>
+          <p>In-ear earbuds, Adaptive Transparency, H2 chip, up to 6 hours listening, MagSafe case.</p>
+          <div class="product-price">LKR 72,000</div>
+          <span class="product-avail limited">Limited Stock</span>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">&#127911;</div>
+        <div class="product-info">
+          <h3>JBL Charge 5</h3>
+          <p>Portable waterproof Bluetooth speaker, 20-hour playtime, powerful bass, IP67 rated.</p>
+          <div class="product-price">LKR 32,000</div>
+          <span class="product-avail in-stock">In Stock</span>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">&#127911;</div>
+        <div class="product-info">
+          <h3>Samsung Galaxy Buds 3</h3>
+          <p>Open-type earbuds, two-way speaker, ANC, up to 36 hours total battery with case.</p>
+          <div class="product-price">LKR 38,500</div>
+          <span class="product-avail out-stock">Out of Stock</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SMARTWATCHES -->
+  <div class="category-section" id="wearables">
+    <h2>&#8987; Smartwatches &amp; Wearables</h2>
+    <div class="product-grid">
+
+      <div class="product-card">
+        <div class="product-img">&#8987;</div>
+        <div class="product-info">
+          <h3>Apple Watch Series 10</h3>
+          <p>45mm Retina OLED, ECG, blood oxygen, crash detection, Always-On display, watchOS 11.</p>
+          <div class="product-price">LKR 119,000</div>
+          <span class="product-avail in-stock">In Stock</span>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">&#8987;</div>
+        <div class="product-info">
+          <h3>Samsung Galaxy Watch 7</h3>
+          <p>44mm AMOLED, advanced health sensors, BioActive sensor, 40-hour battery, Wear OS 5.</p>
+          <div class="product-price">LKR 79,500</div>
+          <span class="product-avail in-stock">In Stock</span>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">&#8987;</div>
+        <div class="product-info">
+          <h3>Apple Watch SE (2nd Gen)</h3>
+          <p>40mm Retina display, fall detection, heart rate monitoring, swim-proof, affordable Apple Watch.</p>
+          <div class="product-price">LKR 55,000</div>
+          <span class="product-avail in-stock">In Stock</span>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">&#8987;</div>
+        <div class="product-info">
+          <h3>Fitbit Charge 6</h3>
+          <p>Fitness tracker with built-in GPS, heart rate, sleep tracking, Google Maps &amp; Wallet support.</p>
+          <div class="product-price">LKR 32,000</div>
+          <span class="product-avail limited">Limited Stock</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- GAMING -->
+  <div class="category-section" id="gaming">
+    <h2>&#127918; Gaming Accessories</h2>
+    <div class="product-grid">
+
+      <div class="product-card">
+        <div class="product-img">&#127918;</div>
+        <div class="product-info">
+          <h3>Razer DeathAdder V3</h3>
+          <p>Ergonomic wired gaming mouse, 30K optical sensor, 90-hour battery life, ultra-light design.</p>
+          <div class="product-price">LKR 18,500</div>
+          <span class="product-avail in-stock">In Stock</span>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">&#127918;</div>
+        <div class="product-info">
+          <h3>Logitech G Pro X Keyboard</h3>
+          <p>Tenkeyless mechanical gaming keyboard, swappable GX switches, RGB LIGHTSYNC, pro-grade build.</p>
+          <div class="product-price">LKR 29,000</div>
+          <span class="product-avail in-stock">In Stock</span>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">&#127918;</div>
+        <div class="product-info">
+          <h3>Sony PS5 DualSense Controller</h3>
+          <p>Wireless controller with haptic feedback, adaptive triggers, built-in microphone, USB-C charging.</p>
+          <div class="product-price">LKR 19,800</div>
+          <span class="product-avail in-stock">In Stock</span>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">&#127918;</div>
+        <div class="product-info">
+          <h3>HyperX Cloud III Headset</h3>
+          <p>Gaming headset with 53mm angled drivers, DTS 7.1 Spatial Audio, leatherette memory foam.</p>
+          <div class="product-price">LKR 24,500</div>
+          <span class="product-avail limited">Limited Stock</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p><strong>TechZone Gadget Store</strong> &mdash; Colombo, Sri Lanka</p>
+    <p style="margin-top:6px;">&#128222; +94 11 234 5678 &nbsp;|&nbsp; &#9993; info@techzone.lk &nbsp;|&nbsp; Open: Mon&ndash;Sat 9AM&ndash;6PM</p>
+    <p style="margin-top:8px; font-size:11px;">&copy; 2025 TechZone Pvt Ltd. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
